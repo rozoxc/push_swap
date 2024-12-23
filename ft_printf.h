@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 17:39:05 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/23 13:53:20 by ababdoul         ###   ########.fr       */
+/*   Created: 2024/11/23 19:06:19 by ababdoul          #+#    #+#             */
+/*   Updated: 2024/11/28 16:56:01 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <stdlib.h>
-#include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdarg.h>
-
-typedef struct s_stack{
-    int *array;
-    int size;
-    int top;
-}t_stack;
-void parse_input(int ac, char **av);
-
-void ft_swap(t_stack *stack);// SA && SB
-void ft_push(t_stack *stack);// PA && PB
-void ft_rotate(t_stack *stack);// ra && rb
-void ft_reverse_rotate(t_stack *stack);// rra && rrb
-int	ft_atoi(const char *str);
-
 
 int				ft_putchar(int c);
 int				ft_putnbr(int nb);
@@ -42,5 +26,5 @@ int				convert_hex(unsigned int n);
 int				print_addr(unsigned long num);
 int				ft_convert_hex(unsigned int n);
 unsigned int	ft_unsigned(unsigned int nb);
-int ft_is_digit(char *str);
+
 #endif
