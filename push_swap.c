@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/23 15:51:45 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/24 21:58:47 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 //         ft_printf("%d ", stack->array[i]);
 //         i++;
 //     }
+// }
+// void ft_operation(t_stack *stack)
+// {
+    
 // }
 int main(int ac , char **av)
 {
@@ -44,7 +48,7 @@ int main(int ac , char **av)
         j = 0;
         while (i < stack->size)
         {
-            if(ft_is_digit(av[i]) == 0)
+            if(ft_is_digit(av[i]) == 0 || ft_strcmp(av[i] , av[i - 1]) == 0)
             {
                 ft_printf("Error");
                 flag = 1;
@@ -54,6 +58,7 @@ int main(int ac , char **av)
             i++;
             j++;
         }
+        // ft_operation(stack);
+    }
     return 0;
-}
 }

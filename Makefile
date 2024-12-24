@@ -5,7 +5,7 @@ HEADER = push_swap.h
 
 SRCS = ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c print_address.c \
 		ft_strlen.c Convert_hex.c hex.c  unsigned.c ft_is_digit.c \
-		push_swap.c ft_atoi.c
+		push_swap.c ft_atoi.c ft_strcmp.c \
 
 OBJS = $(SRCS:.c=.o)
 
