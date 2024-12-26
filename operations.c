@@ -12,3 +12,13 @@
 
 #include "push_swap.h"
 
+void ft_swap(t_stack *stack)
+{
+    int tmp;
+
+    if (stack_a->size < 1)
+        return ;
+    tmp = stack_a->array[0];
+    stack_a->array[0] = stack_a->array[1];
+    stack_a->array[1] = tmp;
+}
