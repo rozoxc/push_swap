@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unsigned.c                                         :+:      :+:    :+:   */
+/*   ft_is_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 20:23:03 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/11/28 16:43:34 by ababdoul         ###   ########.fr       */
+/*   Created: 2024/12/23 13:34:26 by ababdoul          #+#    #+#             */
+/*   Updated: 2024/12/23 15:48:53 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../push_swap.h"
 
-unsigned int	ft_unsigned(unsigned int nb)
+int ft_is_digit(char *str)
 {
-	int		count;
-	char	c;
+    int i;
 
-	count = 0;
-	if (nb > 9)
-	{
-		count += ft_putnbr(nb / 10);
-		count += ft_putnbr(nb % 10);
-	}
-	else
-	{
-		c = nb + '0';
-		count += write(1, &c, 1);
-	}
-	return (count);
+    i = 0;
+    if (str[i] == '-' || str[i] == '+')
+        i++;
+    if (!str[i])
+        return (0);
+    while (str[i] != '\0')
+    {
+        if (str[i] < '0' || str[i] > '9')
+            return (0);
+        i++;
+    }
+    return (1);
 }

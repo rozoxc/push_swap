@@ -10,23 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-// void print(t_stack *stack)
-// {
-//     int i;
+void print(t_stack *stack)
+{
+    int i;
     
-//     i = 0;
-//     while (i < stack->size - 1)
-//     {
-//         ft_printf("%d ", stack->array[i]);
-//         i++;
-//     }
-// }
-// void ft_operation(t_stack *stack)
-// {
-    
-// }
+    i = 0;
+    while (i < stack->size - 1)
+    {
+        printf("%d ", stack->array[i]);
+        i++;
+    }
+}
+
 int ft_hundle_error(char **av, int size)
 {
     int i;
@@ -80,7 +77,6 @@ int main(int ac , char **av)
 
         stack_a = NULL;
         stack_b = NULL;
-        stack_a->size = ac;
         ft_init_stacks(&stack_a, &stack_b, ac);
         if (ft_hundle_error(av, ac) == 0)
         {
@@ -95,6 +91,7 @@ int main(int ac , char **av)
         free(stack_b);
         free(stack_a->array);
         free(stack_b->array);
+        print(stack_a);
     }
     return 0;
 }
