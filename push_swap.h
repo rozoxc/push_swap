@@ -28,8 +28,8 @@ typedef struct s_stack{
 //operations functions
 void ft_swap(t_stack *stack);// SA && SB
 void ft_push(t_stack *src, t_stack *dest);// PA && PB
-void ft_rotate(t_stack *stack);// ra && rb
-void ft_reverse_rotate(t_stack *stack);// rra && rrb 
+void ft_rotate(t_stack *stack);// ra && rb // the first element becomme the last one
+void ft_reverse_rotate(t_stack *stack);// rra && rrb // the last becomme the first one
 
 //utils functions
 int	ft_atoi(const char *str);
