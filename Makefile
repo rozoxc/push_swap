@@ -1,10 +1,11 @@
 CC = cc
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra 
 NAME = push_swap
 HEADER = push_swap.h
 
 SRCS = mandatory/operations.c \
 		mandatory/push_swap.c \
+		mandatory/parsing.c \
 		util/ft_atoi.c \
 		util/ft_is_digit.c \
 		util/ft_strcmp.c

@@ -29,7 +29,7 @@ void ft_push(t_stack *src, t_stack *dest)
 
     i = dest->size;
     if (src->size < 1)
-        return 1;
+        return ;
     while (i > 0)
     {
         dest->array[i] = dest->array[i - 1];

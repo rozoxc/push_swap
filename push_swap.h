@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:39:05 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/24 21:46:07 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/28 10:40:24 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ void ft_reverse_rotate(t_stack *stack);// rra && rrb // the last becomme the fir
 int	ft_atoi(const char *str);
 int ft_is_digit(char *str);
 int ft_strcmp(char *s1, char *s2);
+
+//parsing functions
+int ft_hundle_error(char **av, int size);
 
 #endif
