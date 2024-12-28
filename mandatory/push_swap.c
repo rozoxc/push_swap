@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/28 10:34:03 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/28 12:43:55 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,17 +83,17 @@ int main(int ac, char **av)
         t_stack *stack_b = NULL;
 
         ft_init_stacks(&stack_a, &stack_b, ac);
-
-        if (!stack_a || !stack_b || ft_hundle_error(av, ac) == 0)
+        if (!stack_a || !stack_b)
+            free_stacks(stack_a, stack_b);
+        if (ft_hundle_error(av, ac) == 0)
         {
             write(1, "Error\n", 6);
-            free_stacks(stack_a, stack_b);
             return 1;
         }
 
         ft_fill_stack(stack_a, av, ac);
-
-        print(stack_a);
+        sort(stack_a , stack_b);
+        // print(stack_a);
 
         free_stacks(stack_a, stack_b);
     }

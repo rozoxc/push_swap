@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:39:05 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/28 10:40:24 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:46:56 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int ft_strcmp(char *s1, char *s2);
 
 //parsing functions
 int ft_hundle_error(char **av, int size);
+int ft_is_duplicate(char **av , int size);
 
 #endif

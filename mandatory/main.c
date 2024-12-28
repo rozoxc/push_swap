@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../push_swap.h"
-int main()
+int main(int ac, char **av)
 {
-    char *a = "++1";
-    printf("%d", ft_atoi(a));
+    printf("%s", av[ac -1]);
     return 0;
 }
