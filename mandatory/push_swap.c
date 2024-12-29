@@ -6,12 +6,16 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/28 12:43:55 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/29 12:14:15 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+void f()
+{
+    system("leaks push_swap");
+}
 void print(t_stack *stack)
 {
     int i = 0;
@@ -50,9 +54,11 @@ void ft_init_stacks(t_stack **stack_a, t_stack **stack_b, int size)
 
 void ft_fill_stack(t_stack *stack_a, char **av, int size)
 {
-    int i = 1;
-    int j = 0;
+    int i;
+    int j;
 
+    i = 1;
+    j = 0;
     while (i < size)
     {
         stack_a->array[j] = ft_atoi(av[i]);
@@ -63,21 +69,15 @@ void ft_fill_stack(t_stack *stack_a, char **av, int size)
 
 void free_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-    if (stack_a)
-    {
-        free(stack_a->array);
-        free(stack_a);
-    }
-    if (stack_b)
-    {
-        free(stack_b->array);
-        free(stack_b);
-    }
+    free(stack_a->array);
+    free(stack_a);
+    free(stack_b->array);
+    free(stack_b);
 }
 
 int main(int ac, char **av)
 {
-    if (ac > 2)
+    if (ac > 1)
     {
         t_stack *stack_a = NULL;
         t_stack *stack_b = NULL;
@@ -85,16 +85,14 @@ int main(int ac, char **av)
         ft_init_stacks(&stack_a, &stack_b, ac);
         if (!stack_a || !stack_b)
             free_stacks(stack_a, stack_b);
-        if (ft_hundle_error(av, ac) == 0)
+        if (!ft_hundle_error(av, ac) || !ft_is_duplicate(av, ac) || !ft_max(av, ac))
         {
             write(1, "Error\n", 6);
             return 1;
         }
-
         ft_fill_stack(stack_a, av, ac);
         sort(stack_a , stack_b);
-        // print(stack_a);
-
+        print(stack_a);
         free_stacks(stack_a, stack_b);
     }
     return 0;

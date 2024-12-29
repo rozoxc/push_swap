@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 15:58:15 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/28 12:32:15 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/29 09:56:12 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,29 +79,29 @@ void ft_reverse_rotate(t_stack *stack)
     }
     stack->array[0] = tmp;
 }
-int main()
-{
-    t_stack *stack_a;
-    t_stack *stack_b;
+// int main()
+// {
+//     t_stack *stack_a;
+//     t_stack *stack_b;
 
-    stack_a = malloc(sizeof(t_stack));
-    stack_b = malloc(sizeof(t_stack));
-    stack_a->array = (int *)malloc(sizeof(int));
-    stack_b->array = (int *)malloc(sizeof(int));
-    stack_a->size = 4;
-    stack_b->size = 1;
-    stack_a->array[0] = 2;
-    stack_a->array[1] = 1;
-    stack_a->array[2] = 3;
-    stack_a->array[3] = 0;
-    ft_push(stack_a, stack_b);
-    int i = 0;
-    printf("-------- Stack A ----------\n");
-    while (i < stack_a->size)
-    {
-        printf("%d\n", stack_a->array[i]);
-        i++;
-    }
-    printf("-------- Stack B ----------\n");
-    printf("%d", stack_b->array[0]);
-}
+//     stack_a = malloc(sizeof(t_stack));
+//     stack_b = malloc(sizeof(t_stack));
+//     stack_a->array = (int *)malloc(sizeof(int));
+//     stack_b->array = (int *)malloc(sizeof(int));
+//     stack_a->size = 4;
+//     stack_b->size = 1;
+//     stack_a->array[0] = 2;
+//     stack_a->array[1] = 1;
+//     stack_a->array[2] = 3;
+//     stack_a->array[3] = 0;
+//     ft_push(stack_a, stack_b);
+//     int i = 0;
+//     printf("-------- Stack A ----------\n");
+//     while (i < stack_a->size)
+//     {
+//         printf("%d\n", stack_a->array[i]);
+//         i++;
+//     }
+//     printf("-------- Stack B ----------\n");
+//     printf("%d", stack_b->array[0]);
+// }

@@ -3,6 +3,7 @@
 #include "../push_swap.h"
 int main(int ac, char **av)
 {
-    printf("%s", av[ac -1]);
+    char c = '2';
+    printf("%d", ft_atoi(&c));
     return 0;
 }
