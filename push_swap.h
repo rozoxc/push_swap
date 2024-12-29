@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:39:05 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/29 11:25:25 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/29 20:33:44 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	ft_atoi(const char *str);
 int ft_is_digit(char *str);
 int ft_strcmp(char *s1, char *s2);
 int ft_strlen(char *str);
+int check_arg(char *str)
+
 //sorts functions
 void sort(t_stack *stack_a , t_stack *stack_b);
 

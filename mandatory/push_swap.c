@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/29 12:14:15 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/29 20:45:06 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void print(t_stack *stack)
     }
     printf("\n");
 }
-
 
 void ft_init_stacks(t_stack **stack_a, t_stack **stack_b, int size)
 {
@@ -56,11 +55,17 @@ void ft_fill_stack(t_stack *stack_a, char **av, int size)
 {
     int i;
     int j;
+    **str;
 
+    
     i = 1;
     j = 0;
     while (i < size)
     {
+        if (check_arg(av[i]))
+        {
+            str = ft_split(av[i]);
+        }
         stack_a->array[j] = ft_atoi(av[i]);
         i++;
         j++;
