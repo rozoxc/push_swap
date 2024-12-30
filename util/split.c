@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 20:20:56 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/29 20:04:30 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/30 15:29:15 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,16 +109,4 @@ char	**ft_split(char  *s, char c)
 	}
 	p[i] = NULL;
 	return (p);
-}
-int main()
-{
-	char **str = ft_split("1", ' ');
-	int i;
-
-	i = 0;
-	while (str[i] != NULL)
-	{
-		printf("%s ", str[i]);
-		i++;
-	}
 }

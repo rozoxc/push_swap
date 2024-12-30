@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_digit.c                                      :+:      :+:    :+:   */
+/*   ft_count_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 13:34:26 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/30 15:48:19 by ababdoul         ###   ########.fr       */
+/*   Created: 2024/12/30 15:14:10 by ababdoul          #+#    #+#             */
+/*   Updated: 2024/12/30 15:27:22 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_is_digit(char *str)
+int ft_count_numbers(char **av, int ac)
 {
     int i;
-
-    i = 0;
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    if (!str[i])
-        return (0);
-    while (str[i] != '\0')
+    int count;
+    char **split;
+    
+    i = 1;
+    count = 0;
+    while (i < ac)
     {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
+        split = ft_split(av[i], ' ');
+        int j;
+        j = 0;
+        while (split[j] != NULL)
+        {
+            count++;
+            free(split[j]);
+            j++;
+        }
+        free(split);
         i++;
     }
-    return (1);
+    return (count);
 }

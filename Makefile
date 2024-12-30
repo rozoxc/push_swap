@@ -11,7 +11,8 @@ SRCS = mandatory/operations.c \
 		util/ft_is_digit.c \
 		util/ft_strcmp.c \
 		util/ft_strlen.c \
-		util/check_args.c \
+		util/ft_count_numbers.c \
+		util/split.c \
 
 OBJS = $(SRCS:.c=.o)
 
