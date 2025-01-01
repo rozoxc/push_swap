@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 10:33:04 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/29 11:24:14 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/01 11:40:00 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,19 @@ int ft_hundle_error(char **av, int size)
     }
     return 1;
 }
-int ft_is_duplicate(char **av , int size)
+int ft_is_duplicate(t_stack *stack_a ,int size)
 {
     int i;
     int j;
-    int num1;
-    int num2;
 
-    i = 1;
+    i = 0;
+    // printf("dup funct : %d", stack_a->array[0]);
     while (i < size - 1)
     {
-        num1 = ft_atoi(av[i]);
         j = i + 1;
-        while (j <= size - 1)
+        while (j < size)
         {
-            num2 = ft_atoi(av[j]);
-            if (num1 == num2)
+            if (stack_a->array[i] == stack_a->array[j])
                 return (0);
             j++;
         }

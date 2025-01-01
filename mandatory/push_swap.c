@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/30 21:32:03 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/01 11:40:25 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,8 @@ void ft_init_stacks(t_stack **stack_a, t_stack **stack_b, int size)
         return;
     (*stack_a)->size = size;
     (*stack_b)->size = 0;
-
-    // printf("size int init :  %d \n" ,(*stack_a)->size);
-    (*stack_a)->array = (int *)malloc(sizeof(int) * (size - 1));
-    (*stack_b)->array = (int *)malloc(sizeof(int) * (size - 1));
-
+    (*stack_a)->array = (int *)malloc(sizeof(int) * (*stack_a)->size);
+    (*stack_b)->array = (int *)malloc(sizeof(int) * size);
     if ((*stack_a)->array == NULL || (*stack_b)->array == NULL)
     {
         free((*stack_a)->array);
@@ -68,7 +65,7 @@ void ft_fill_stack(t_stack *stack_a, char **av, int size)
         while (split[j] != NULL)
         {
             stack_a->array[index] = ft_atoi(split[j]);
-            // printf("%d \n", stack_a->array[index]);
+            printf("array[%d] = %d \n", index, stack_a->array[index]);
             free(split[j]);
             index++;
             j++;
@@ -97,18 +94,20 @@ int main(int ac, char **av)
         stack_a = NULL;
         stack_b = NULL;
         size = ft_count_numbers(av, ac);
-        // printf("new size = %d\n", size);
+        printf("size = %d\n", size);
         ft_init_stacks(&stack_a, &stack_b, size);
-        if (!stack_a || !stack_b)
-            free_stacks(stack_a, stack_b);
-        if (!ft_is_duplicate(av, ac) || !ft_max(av, ac))
+        if (!ft_hundle_error(av, ac) || !ft_max(av, ac))
         {
             write(1, "Error\n", 6);
             return 1;
         }
         ft_fill_stack(stack_a, av, ac);
+        if (!ft_is_duplicate(stack_a, size))
+        {
+            write(1, "Error\n", 6);
+            return (1);
+        }
         sort(stack_a , stack_b);
-        print(stack_a);
         free_stacks(stack_a, stack_b);
     }
     return 0;

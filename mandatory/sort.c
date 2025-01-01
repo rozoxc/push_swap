@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 12:44:06 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/30 21:33:43 by ababdoul         ###   ########.fr       */
+/*   Updated: 2024/12/31 14:36:52 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void sort(t_stack *stack_a , t_stack *stack_b)
         return ;
     if (stack_a->size == 2)
     {
-        ft_swap(stack_a);
+        if (stack_a->array[0] > stack_a->array[1])
+            ft_swap(stack_a);
     }
 }
