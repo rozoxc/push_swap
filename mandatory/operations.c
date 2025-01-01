@@ -6,21 +6,21 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 15:58:15 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/29 09:56:12 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/01 14:39:18 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_swap(t_stack *stack_a)
+void ft_swap(t_stack *stack)
 {
     int tmp;
 
-    if (stack_a->size < 1)
+    if (stack->size < 1)
         return ;
-    tmp = stack_a->array[0];
-    stack_a->array[0] = stack_a->array[1];
-    stack_a->array[1] = tmp;
+    tmp = stack->array[0];
+    stack->array[0] = stack->array[1];
+    stack->array[1] = tmp;
 }
 
 void ft_push(t_stack *src, t_stack *dest)
