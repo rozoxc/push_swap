@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:39:05 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/01 11:40:36 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/02 21:12:56 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void sort(t_stack *stack_a , t_stack *stack_b);
 //parsing functions
 int ft_hundle_error(char **av, int size);
 int ft_is_duplicate(t_stack *stack_a, int size);
+int ft_check(char *str);
 int ft_max(char **av, int size);
 #endif

@@ -6,27 +6,11 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/01 15:03:43 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/02 21:14:19 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void f()
-{
-    system("leaks push_swap");
-}
-void print(t_stack *stack)
-{
-    int i = 0;
-    // printf("size = %d\n", stack->size);
-    while (i < stack->size)
-    {
-        printf("%d ", stack->array[i]);
-        i++;
-    }
-    printf("\n"); 
-}
 
 void ft_init_stacks(t_stack **stack_a, t_stack **stack_b, int size)
 {
@@ -65,7 +49,6 @@ void ft_fill_stack(t_stack *stack_a, char **av, int size)
         while (split[j] != NULL)
         {
             stack_a->array[index] = ft_atoi(split[j]);
-            // printf("array[%d] = %d \n", index, stack_a->array[index]);
             free(split[j]);
             index++;
             j++;
@@ -94,16 +77,17 @@ int main(int ac, char **av)
         stack_a = NULL;
         stack_b = NULL;
         size = ft_count_numbers(av, ac);
-        // printf("size = %d\n", size);
         ft_init_stacks(&stack_a, &stack_b, size);
         if (!ft_hundle_error(av, ac) || !ft_max(av, ac))
         {
+            printf("1\n");
             write(1, "Error\n", 6);
             return 1;
         }
         ft_fill_stack(stack_a, av, ac);
         if (!ft_is_duplicate(stack_a, size))
         {
+            printf("2\n");
             write(1, "Error\n", 6);
             return (1);
         }
