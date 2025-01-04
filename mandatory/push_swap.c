@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/02 21:14:19 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/03 20:32:41 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void ft_fill_stack(t_stack *stack_a, char **av, int size)
         while (split[j] != NULL)
         {
             stack_a->array[index] = ft_atoi(split[j]);
+            // printf("array[%d] = %d\n", index, stack_a->array[index]);
             free(split[j]);
             index++;
             j++;
@@ -80,18 +81,16 @@ int main(int ac, char **av)
         ft_init_stacks(&stack_a, &stack_b, size);
         if (!ft_hundle_error(av, ac) || !ft_max(av, ac))
         {
-            printf("1\n");
             write(1, "Error\n", 6);
             return 1;
         }
         ft_fill_stack(stack_a, av, ac);
         if (!ft_is_duplicate(stack_a, size))
         {
-            printf("2\n");
             write(1, "Error\n", 6);
             return (1);
         }
-        sort(stack_a , stack_b);
+        // sort(stack_a , stack_b);
         // print(stack_a);
         free_stacks(stack_a, stack_b);
         // f();

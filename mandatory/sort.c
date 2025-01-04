@@ -6,108 +6,94 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 12:44:06 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/01 21:32:49 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/03 20:49:04 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+// #include "../push_swap.h"
 
 
-void    sort_two(t_stack *stack_a)
+int ft_chunck_size(int size)
 {
-    if (stack_a->array[0] > stack_a->array[1])
-        {
-            ft_swap(stack_a);
-            write(1, "sa\n", 3);
-        }
+    if (size >= 100)
+        return (20);
+    else if(size >= 500)
+        return (50);
+    else
+        return (size / 10);
 }
-void    sort_three(t_stack *stack_a)
+void push_chunk_to_b(t_stack *stack_a, t_stack *stack_b, int current_chunk, int chunk_size)
 {
-    if (stack_a->array[0] > stack_a->array[1] && stack_a->array[1] < stack_a->array[2] 
-        && stack_a->array[0] < stack_a->array[2])
-        {
-            ft_swap(stack_a);
-            write(1, "sa\n", 3);
-        }
-    else if (stack_a->array[0] > stack_a->array[1] && stack_a->array[1] > stack_a->array[2])
-    {
-        ft_swap(stack_a);
-        ft_reverse_rotate(stack_a);
-        write(1, "sa\nrra\n", 7);
-    }
-    else if (stack_a->array[0] > stack_a->array[1] 
-            && stack_a->array[1] < stack_a->array[2] && stack_a->array[0] > stack_a->array[2])
-            {
-                ft_rotate(stack_a);
-                write(1, "ra\n", 3);
-            }
-    else if (stack_a->array[0] < stack_a->array[1] && stack_a->array[1] > stack_a->array[2]
-            && stack_a->array[0] < stack_a->array[2])
-    {
-        ft_swap(stack_a);
-        ft_rotate(stack_a);
-        write(1, "sa\nra\n", 6);
-    }
-    else if (stack_a->array[0] < stack_a->array[1] && stack_a->array[1] > stack_a->array[2] 
-            && stack_a->array[0] > stack_a->array[2])
-        {
-            ft_reverse_rotate(stack_a);
-            write(1, "rra\n", 4);
-        }
-}
-void sort_five(t_stack *stack_a, t_stack *stack_b)
-{
-    int smallest;
     int i;
 
-    while (stack_a->size > 3)
+    i = 0;
+    while (i < chunk_size && stack_a->size > 0)
     {
-        smallest = 0;
-        i = 1;
-        while (i < stack_a->size)
+        if (belongs_to_chunk(stack_a->array[0], current_chunk, chunk_size))
         {
-            if (stack_a->array[i] < stack_a->array[smallest])
-                smallest = i;
-            i++;
-        }
-        if (smallest <= stack_a->size / 2)
-        {
-            while (smallest > 0)
-            {
-                ft_rotate(stack_a);
-                write(1, "ra\n", 3);
-                smallest--;
-            }
+            ft_push(stack_a, stack_b);
+            write(1, "pb\n", 3);
         }
         else
         {
-            while (smallest < stack_a->size)
-            {
-                ft_reverse_rotate(stack_a);
-                write(1, "rra\n", 4);
-                smallest++;
-            }
+            ft_rotate(stack_a);
+            write(1, "ra\n", 3);
         }
-        ft_push(stack_a, stack_b);
-        write(1, "pb\n", 3);
+        i++;
     }
-    sort_three(stack_a);
+}
+void sort_and_merge_back(t_stack *stack_a, t_stack *stack_b)
+{
+    int cost_a;
+    int cost_b;
+
     while (stack_b->size > 0)
     {
+        find_min_cost(stack_b, &cost_a, &cost_b);
+        execute_best_move(stack_a, stack_b, cost_a, cost_b);
         ft_push(stack_b, stack_a);
         write(1, "pa\n", 3);
+    }
+}
+void execute_best_move(t_stack *stack_a, t_stack *stack_b, int cost_a, int cost_b)
+{
+    while (cost_a > 0 || cost_b > 0)
+    {
+        if (cost_a > 0 && cost_b > 0)
+        {
+            ft_rotate_both(stack_a, stack_b);
+            write(1, "rr\n", 3);
+            cost_a--;
+            cost_b--;
+        }
+        else if (cost_a > 0)
+        {
+            ft_rotate(stack_a);
+            write(1, "ra\n", 3);
+            cost_a--;
+        }
+        else if (cost_b > 0)
+        {
+            ft_rotate(stack_b);
+            write(1, "rb\n", 3);
+            cost_b--;
+        }
     }
 }
 
 void sort(t_stack *stack_a , t_stack *stack_b)
 {
-    (void)stack_b;
-    if (stack_a->size < 2)
-        return ;
-    if (stack_a->size == 2)
-        sort_two(stack_a);
-    if (stack_a->size == 3)
-        sort_three(stack_a);
-    if (stack_a->size > 3)
-        sort_five(stack_a, stack_b);
+    int chunck_size;
+    int chunck;
+    int current_chunck;
+
+    chunck_size = ft_chunck_size(stack_a->size);
+    chunck = stack_a->size / chunck_size;
+    current_chunck = 0;
+    while (current_chunck < chunck)
+    {
+        push_chunk_to_b(stack_a, stack_b, current_chunck, chunck);
+        current_chunck++;
+    }
+    sort_and_merge_back(stack_a, stack_b);
 }

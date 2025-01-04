@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:39:05 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/02 21:12:56 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/03 13:22:41 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 typedef struct s_stack{
     int *array;
     int size;
-    int top;
 }t_stack;
 
 //operations functions
