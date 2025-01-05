@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rozox <rozox@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:39:05 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/03 13:22:41 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:20:23 by rozox            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdarg.h>
- #define INT_MAX 2147483647
+
 typedef struct s_stack{
     int *array;
     int size;
+    int index;
 }t_stack;
 
 //operations functions

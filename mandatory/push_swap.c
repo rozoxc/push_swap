@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rozox <rozox@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/03 20:32:41 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:05:52 by rozox            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
+void f()
+{
+    system("leaks push_swap");
+}
 void ft_init_stacks(t_stack **stack_a, t_stack **stack_b, int size)
 {
     *stack_a = (t_stack *)malloc(sizeof(t_stack));
@@ -19,7 +22,9 @@ void ft_init_stacks(t_stack **stack_a, t_stack **stack_b, int size)
     if (*stack_a == NULL || *stack_b == NULL)
         return;
     (*stack_a)->size = size;
+    (*stack_a)->index = 0;
     (*stack_b)->size = 0;
+    (*stack_b)->index = 1;
     (*stack_a)->array = (int *)malloc(sizeof(int) * (*stack_a)->size);
     (*stack_b)->array = (int *)malloc(sizeof(int) * size);
     if ((*stack_a)->array == NULL || (*stack_b)->array == NULL)
@@ -49,7 +54,7 @@ void ft_fill_stack(t_stack *stack_a, char **av, int size)
         while (split[j] != NULL)
         {
             stack_a->array[index] = ft_atoi(split[j]);
-            // printf("array[%d] = %d\n", index, stack_a->array[index]);
+            printf("array[%d] = %d\n", index, stack_a->array[index]);
             free(split[j]);
             index++;
             j++;
@@ -81,6 +86,8 @@ int main(int ac, char **av)
         ft_init_stacks(&stack_a, &stack_b, size);
         if (!ft_hundle_error(av, ac) || !ft_max(av, ac))
         {
+            printf("hundle error : %d\n", ft_hundle_error(av, ac));
+            printf("ft_max : %d\n", ft_max(av, ac));
             write(1, "Error\n", 6);
             return 1;
         }
@@ -90,7 +97,7 @@ int main(int ac, char **av)
             write(1, "Error\n", 6);
             return (1);
         }
-        // sort(stack_a , stack_b);
+        sort(stack_a , stack_b);
         // print(stack_a);
         free_stacks(stack_a, stack_b);
         // f();

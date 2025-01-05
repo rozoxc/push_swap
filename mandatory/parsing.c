@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rozox <rozox@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 10:33:04 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/02 21:13:15 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/04 23:17:24 by rozox            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,6 @@ int	ft_is_duplicate(t_stack *stack_a, int size)
 
 int	ft_check(char *str)
 {
-	int	i;
-
-	i = 1;
 	if (ft_strlen(str) > 10)
 		return (0);
 	else if (ft_strlen(str) == 10)

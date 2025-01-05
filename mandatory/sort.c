@@ -3,97 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rozox <rozox@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 12:44:06 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/03 20:49:04 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/05 19:51:44 by rozox            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../push_swap.h"
+#include "../push_swap.h"
 
-
-int ft_chunck_size(int size)
-{
-    if (size >= 100)
-        return (20);
-    else if(size >= 500)
-        return (50);
-    else
-        return (size / 10);
-}
-void push_chunk_to_b(t_stack *stack_a, t_stack *stack_b, int current_chunk, int chunk_size)
+int find_min(t_stack *stack)
 {
     int i;
+    int min;
 
-    i = 0;
-    while (i < chunk_size && stack_a->size > 0)
+    i = 0;// stack = 0 1 2 3 4 5 6 -1
+    while (i < stack->size)// 0 < 8
     {
-        if (belongs_to_chunk(stack_a->array[0], current_chunk, chunk_size))
-        {
-            ft_push(stack_a, stack_b);
-            write(1, "pb\n", 3);
-        }
-        else
-        {
-            ft_rotate(stack_a);
-            write(1, "ra\n", 3);
-        }
+       if (stack->array[i] < stack->array[i + 1])
+            min = stack->array[i];
         i++;
     }
+    return (min);
 }
-void sort_and_merge_back(t_stack *stack_a, t_stack *stack_b)
+void sort_two(t_stack *stack)
 {
-    int cost_a;
-    int cost_b;
-
-    while (stack_b->size > 0)
+    if (stack->array[0] > stack->array[1])
     {
-        find_min_cost(stack_b, &cost_a, &cost_b);
-        execute_best_move(stack_a, stack_b, cost_a, cost_b);
-        ft_push(stack_b, stack_a);
-        write(1, "pa\n", 3);
+        ft_swap(stack);
+        if (stack->index == 0)
+            write(1, "sa\n", 3);
+        else if (stack->index == 1)
+            write(1, "sb\n", 3);
+    }
+    else
+        return ;
+}
+void sort_max(t_stack *stack)
+{
+    int i;
+    int min;
+
+    min = find_min(stack);
+    i = 0;
+    // printf("minimal value in stack is : %d \n", i);
+    while (i < stack->size)
+    {
+        
     }
 }
-void execute_best_move(t_stack *stack_a, t_stack *stack_b, int cost_a, int cost_b)
+void    sort(t_stack *stack_a, t_stack *stack_b)
 {
-    while (cost_a > 0 || cost_b > 0)
-    {
-        if (cost_a > 0 && cost_b > 0)
-        {
-            ft_rotate_both(stack_a, stack_b);
-            write(1, "rr\n", 3);
-            cost_a--;
-            cost_b--;
-        }
-        else if (cost_a > 0)
-        {
-            ft_rotate(stack_a);
-            write(1, "ra\n", 3);
-            cost_a--;
-        }
-        else if (cost_b > 0)
-        {
-            ft_rotate(stack_b);
-            write(1, "rb\n", 3);
-            cost_b--;
-        }
-    }
-}
-
-void sort(t_stack *stack_a , t_stack *stack_b)
-{
-    int chunck_size;
-    int chunck;
-    int current_chunck;
-
-    chunck_size = ft_chunck_size(stack_a->size);
-    chunck = stack_a->size / chunck_size;
-    current_chunck = 0;
-    while (current_chunck < chunck)
-    {
-        push_chunk_to_b(stack_a, stack_b, current_chunck, chunck);
-        current_chunck++;
-    }
-    sort_and_merge_back(stack_a, stack_b);
+    (void)stack_b;
+    printf("size in sort alg : %d\n", stack_a->size);
+    if (stack_a->size <= 1)
+        return ;
+    else if (stack_a->size == 2)
+        sort_two(stack_a);
+    else if (stack_a->size >= 3)
+        sort_max(stack_a);
 }
