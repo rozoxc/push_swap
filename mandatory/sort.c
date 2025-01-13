@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rozox <rozox@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 12:44:06 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/11 14:03:31 by rozox            ###   ########.fr       */
+/*   Updated: 2025/01/13 17:05:45 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,30 +47,71 @@ void sort_three(t_stack *stack)
     }
 }
 
-void sort_more_than_three(t_stack *stack_a, t_stack *stack_b)
+void sort_four(t_stack *stack_a, t_stack *stack_b)
 {
-    while (stack_a->size > 3)
-        do_pb(stack_a, stack_b);
-    sort_three(stack_a);
-    while (stack_b->size > 0)
+    int min_value;
+    int distance;
+
+    if (is_sorted(stack_a) == 1)
+        return;
+
+    min_value = get_min(stack_a);
+    distance = get_distance(stack_a, min_value);
+    if (distance == 1)
+        do_ra(stack_a);
+    else if (distance == 2)
     {
-        calculate_positions(stack_a, stack_b);
-        calculate_costs(stack_a, stack_b);
-        execute_best_move(stack_a, stack_b);
+        do_ra(stack_a);
+        do_ra(stack_a);
     }
-    finalize_stack_a(stack_a);
+    else if (distance == 3)
+        do_rra(stack_a);
+    if ( is_sorted(stack_a) == 1)
+        return ;
+    do_pb(stack_a, stack_b);
+    sort_three(stack_a);
+    do_pa(stack_b, stack_a);
+}
+
+
+void sort_five(t_stack *stack_a, t_stack *stack_b)
+{
+    int distance;
+
+    distance = get_distance(stack_a, get_min(stack_a));
+    if (distance == 1)
+        do_ra(stack_a);
+    else if (distance == 2)
+    {
+        do_ra(stack_a);
+        do_ra(stack_a);
+    }
+    else if (distance == 3)
+    {
+        do_rra(stack_a);
+        do_rra(stack_a);
+    }
+    else if (distance == 4)
+        do_rra(stack_a);
+    if (is_sorted(stack_a))
+        return ;
+    do_pb(stack_a, stack_b);
+    sort_four(stack_a, stack_b);
+    do_pa(stack_b, stack_a);
 }
 
 void sort(t_stack *stack_a , t_stack *stack_b)
 {
-    (void)stack_b;
     if (stack_a->size <= 1)
         return ;
     else if (stack_a->size == 2)
         sort_two(stack_a);
     else if(stack_a->size == 3)
         sort_three(stack_a);
-    else if (stack_a->size >= 3)
-        sort_more_than_three(stack_a , stack_b);
-    
+    else if (stack_a->size == 4)
+        sort_four(stack_a, stack_b);
+    else if (stack_a->size == 5)
+        sort_five(stack_a , stack_b);
+    else if(stack_a->size > 5)
+        radix_sort(stack_a, stack_b);
 }

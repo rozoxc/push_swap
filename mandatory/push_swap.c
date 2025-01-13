@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rozox <rozox@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/11 14:02:54 by rozox            ###   ########.fr       */
+/*   Updated: 2025/01/13 13:44:16 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void ft_init_stacks(t_stack **stack_a, t_stack **stack_b, int size)
     (*stack_b)->index_stack = 1;
     (*stack_a)->array = (int *)malloc(sizeof(int) * (*stack_a)->size);
     (*stack_b)->array = (int *)malloc(sizeof(int) * size);
-    (*stack_a)->cost_a = (int *)malloc(sizeof(int) * size);
-    (*stack_b)->cost_b = (int *)malloc(sizeof(int) * size);
     if ((*stack_a)->array == NULL || (*stack_b)->array == NULL)
     {
         free((*stack_a)->array);
@@ -97,9 +95,7 @@ int main(int ac, char **av)
             return (1);
         }
         sort(stack_a , stack_b);
-        // print(stack_a);
         free_stacks(stack_a, stack_b);
-        // f();
     }
     return 0;
 }

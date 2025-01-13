@@ -3,10 +3,15 @@ FLAGS = -Wall -Werror -Wextra
 NAME = push_swap
 HEADER = push_swap.h
 
-SRCS = mandatory/operations.c \
+SRCS = mandatory/push.c \
+		mandatory/rotate.c \
+		mandatory/reverse_rotate.c \
+		mandatory/swap.c \
 		mandatory/push_swap.c \
 		mandatory/parsing.c \
 		mandatory/sort.c \
+		mandatory/sort_helper.c \
+		mandatory/radix.c \
 		util/ft_atoi.c \
 		util/ft_is_digit.c \
 		util/ft_strcmp.c \
