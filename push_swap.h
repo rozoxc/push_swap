@@ -6,7 +6,7 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:39:05 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/13 16:55:52 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:30:16 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,18 @@ void ft_rotate(t_stack *stack);// ra && rb // the first element becomme the last
 void ft_reverse_rotate(t_stack *stack);// rra && rrb // the last becomme the first one
 void do_pa(t_stack *stack_b, t_stack *stack_a);
 void do_pb(t_stack *stack_a, t_stack *stack_b);
+
 void do_rra(t_stack *stack_a);
-void    do_rrb(t_stack *stack_b);
+void do_rrb(t_stack *stack_b);
 void do_rrr(t_stack *stack_a, t_stack *stack_b);
+
 void do_ra(t_stack *stack_a);
 void do_rb(t_stack *stack_b);
+void do_rr(t_stack *stack_a, t_stack *stack_b);
+
 void do_sa(t_stack *stack_a);
 void do_sb(t_stack *stack_b);
+void do_ss(t_stack *stack_a, t_stack *stack_b);
 
 //utils functions
 int	ft_atoi(const char *str);
@@ -58,7 +63,7 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b);
 int get_min(t_stack *stack);
 int get_distance(t_stack *stack, int value);
 int is_sorted(t_stack *stack);
-
+			
 //parsing functions
 int ft_hundle_error(char **av, int size);
 int ft_is_duplicate(t_stack *stack_a, int size);

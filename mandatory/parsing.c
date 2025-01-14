@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rozox <rozox@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 10:33:04 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/04 23:17:24 by rozox            ###   ########.fr       */
+/*   Updated: 2025/01/14 17:19:16 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	ft_hundle_error(char **av, int size)
 	while (i < size)
 	{
 		if (ft_is_digit(av[i]) == 0)
+		{
 			return (0);
+		}
 		i++;
 	}
 	return (1);

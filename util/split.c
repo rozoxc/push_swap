@@ -6,11 +6,9 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 20:20:56 by ababdoul          #+#    #+#             */
-/*   Updated: 2024/12/30 15:29:15 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:41:52 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 #include "../push_swap.h"
 
 static int	count_word(char *str, char c)
@@ -82,7 +80,7 @@ static char	*my_free(char **str)
 	return (NULL);
 }
 
-char	**ft_split(char  *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int		i;
 	int		size;

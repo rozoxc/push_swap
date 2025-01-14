@@ -6,7 +6,7 @@
 /*   By: rozox <rozox@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 21:05:28 by rozox             #+#    #+#             */
-/*   Updated: 2025/01/09 17:46:29 by rozox            ###   ########.fr       */
+/*   Updated: 2025/01/14 14:00:47 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,21 @@ void	ft_reverse_rotate(t_stack *stack)
 	stack->array[0] = tmp;
 }
 
-void do_rra(t_stack *stack_a)
+void	do_rra(t_stack *stack_a)
 {
-    ft_reverse_rotate(stack_a);
-    write(1, "rra\n", 4);
+	ft_reverse_rotate(stack_a);
+	write(1, "rra\n", 4);
 }
 
-void    do_rrb(t_stack *stack_b)
+void	do_rrb(t_stack *stack_b)
 {
-    ft_reverse_rotate(stack_b);
-    write(1, "rrb\n", 4);
+	ft_reverse_rotate(stack_b);
+	write(1, "rrb\n", 4);
 }
-void do_rrr(t_stack *stack_a, t_stack *stack_b)
+
+void	do_rrr(t_stack *stack_a, t_stack *stack_b)
 {
-     ft_reverse_rotate(stack_a);
-     ft_reverse_rotate(stack_b);
-     write(1, "rrr\n", 4);    
+	ft_reverse_rotate(stack_a);
+	ft_reverse_rotate(stack_b);
+	write(1, "rrr\n", 4);
 }
