@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rozox <rozox@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 13:34:26 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/14 14:43:26 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:54:06 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,13 @@ int	ft_is_digit(char *str)
 			break ;
 		if (str[i] == '-' || str[i] == '+')
 			i++;
-		if (!str[i])
-			return (0);
-		if (str[i] < '0' || str[i] > '9')
+		if (!str[i] || str[i] < '0' || str[i] > '9')
 			return (0);
 		found_digit = 1;
 		while (str[i] && str[i] >= '0' && str[i] <= '9')
-		{
-			if (str[i + 1] == '-' || str[i + 1] == '+')
-				return (0);
 			i++;
-		}
+		if (str[i] == '-' || str[i] == '+')
+			return (0);
 	}
 	return (found_digit);
 }

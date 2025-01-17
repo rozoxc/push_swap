@@ -6,11 +6,12 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:09:30 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/14 17:29:40 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:03:28 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
 void f()
 {
 	system("leaks push_swap");
@@ -25,12 +26,10 @@ void	ft_init_stacks(t_stack **stack_a, t_stack **stack_b, int size)
 	(*stack_a)->index_stack = 0;
 	(*stack_b)->size = 0;
 	(*stack_b)->index_stack = 1;
-	(*stack_a)->array = (int *)malloc(sizeof(int) * (*stack_a)->size);
+	(*stack_a)->array = (int *)malloc(sizeof(int) * size);
 	(*stack_b)->array = (int *)malloc(sizeof(int) * size);
 	if ((*stack_a)->array == NULL || (*stack_b)->array == NULL)
 	{
-		free((*stack_a)->array);
-		free((*stack_b)->array);
 		free(*stack_a);
 		free(*stack_b);
 		*stack_a = NULL;
@@ -95,8 +94,7 @@ int	main(int ac, char **av)
 			return (1);
 		}
 		sort(stack_a, stack_b);
-		free_stacks(stack_a, stack_b); 
-		// f();
+		free_stacks(stack_a, stack_b);
 	}
 	return (0);
 }

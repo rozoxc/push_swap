@@ -6,9 +6,10 @@
 /*   By: ababdoul <ababdoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 20:20:56 by ababdoul          #+#    #+#             */
-/*   Updated: 2025/01/14 14:41:52 by ababdoul         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:16:30 by ababdoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static int	count_word(char *str, char c)
